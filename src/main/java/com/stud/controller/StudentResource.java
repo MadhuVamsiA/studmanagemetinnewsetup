@@ -49,7 +49,7 @@ public class StudentResource {
 
 	@POST
 	@Path("/update")
-	@Produces(MediaType.APPLICATION_JSON)
+	// @Produces(MediaType.APPLICATION_JSON)
 	public Boolean updateStudent(Student stud) throws SQLException, ClassNotFoundException{
 		//Student studentUpdate= new Student(id, name, age, branch,section);
 		studentDao.updateStudent(stud);
