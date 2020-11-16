@@ -11,7 +11,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import com.stud.studentDao.StudentDao;
 import com.stud.studentmodel.Student;
 
@@ -21,11 +24,17 @@ public class StudentResource {
 
 	StudentDao studentDao=new StudentDao();
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Student> getStudent() throws SQLException, ClassNotFoundException{
-			List<Student> studs=studentDao.selectAllStudents();
-			return studs;
-			}
+	 @Produces(MediaType.APPLICATION_JSON) 
+	 public List<Student> getStudent() throws SQLException, ClassNotFoundException{ 
+		List<Student> studs=studentDao.selectAllStudents(); 
+		return studs; 
+		}
+	 
+	//can send as response also
+	/*
+	 * public Response getStudent() throws SQLException, ClassNotFoundException{ List<Student> studs=studentDao.selectAllStudents(); List<Student> list = studs; GenericEntity<List<Student>> entity =
+	 * new GenericEntity<List<Student>>(list) {}; //Response response = Response.ok(entity).build(); return Response.ok(entity).header("Access-Control-Allow-Origin", "*").build(); }
+	 */
 			
 	
 
@@ -56,15 +65,14 @@ public class StudentResource {
 		return true;
 	}
 	
-	@DELETE
-	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<Student> deleteStudent(@PathParam("id") int id) throws SQLException, ClassNotFoundException {
-		studentDao.deleteStudent(id);
-		return getStudent();
-
-	}
-	
+	  @DELETE
+	  @Path("{id}")
+	  @Produces(MediaType.APPLICATION_JSON) public List<Student> deleteStudent(@PathParam("id") int id) throws SQLException, ClassNotFoundException { studentDao.deleteStudent(id); return
+	  getStudent();
+	  
+	  }
+	 
+		
 	
 }
 

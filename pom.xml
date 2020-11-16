@@ -47,10 +47,13 @@
         <!-- uncomment this to get JSON support
 
         -->
-                <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-moxy</artifactId>
-        </dependency>
+
+        <dependency>
+    <groupId>org.glassfish.jersey.media</groupId>
+    <artifactId>jersey-media-moxy</artifactId>
+   
+</dependency>
+
         <!--  added for The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path -->
         <dependency>
     <groupId>javax.servlet</groupId>
